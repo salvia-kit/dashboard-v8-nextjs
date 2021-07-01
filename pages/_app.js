@@ -1,5 +1,5 @@
 import 'tailwindcss/tailwind.css';
-import DashboardLayout from '../dashboard/index';
+import DashboardLayout from '../src/dashboard';
 
 function MyApp({ Component, pageProps }) {
   return (

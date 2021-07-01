@@ -1,57 +1,55 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-export function useToggleAccordion(props) {
-  const [selected, setSelected] = React.useState(props?.defaultSection || '');
+export default function Accordion({ children }) {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef(null);
   const router = useRouter();
 
-  const toggleAccordion = React.useCallback(
-    (id) => () => {
-      setSelected((prevState) => (prevState !== id ? id : ''));
-    },
-    [],
-  );
+  const inlineStyle = open
+    ? { height: ref.current?.scrollHeight }
+    : { height: 0 };
+
+  const toggle = React.useCallback(() => {
+    setOpen((prevState) => !prevState);
+  }, []);
+
+  const accordionItem = children[0];
+  const accordionPanel = children[1];
 
   // Reset accordion state when route starts changing
   React.useEffect(() => {
-    if (window.innerWidth < 1024) {
-      router.events.on('routeChangeStart', () => setSelected(''));
+    if (open && window.innerWidth < 1024) {
+      router.events.on('routeChangeStart', () => setOpen(false));
     }
 
     return () => {
-      if (window.innerWidth < 1024) {
-        router.events.off('routeChangeStart', () => setSelected(''));
+      if (open && window.innerWidth < 1024) {
+        router.events.off('routeChangeStart', () => setOpen(false));
       }
     };
-  }, [router]);
-
-  return { selected, toggleAccordion };
-}
-
-export function Accordion({ selected, children, id }) {
-  const ref = React.useRef();
-  const inlineStyle =
-    selected === id ? { height: ref.current?.scrollHeight } : { height: 0 };
+  }, [open, router]);
 
   return (
-    <div
-      className="-mt-5 overflow-hidden text-gray-600 transition-height ease duration-300"
-      ref={ref}
-      style={inlineStyle}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function AccordionHeader({ selected, id, children, ...rest }) {
-  return (
-    <div role="button" {...rest}>
-      {children}
-      <span className="ml-auto">
-        {selected === id ? <AngleDownIcon /> : <AngleRightIcon />}
-      </span>
-    </div>
+    <>
+      <div
+        role="button"
+        onClick={toggle}
+        className="flex justify-start my-2 py-6 px-4 text-black text-sm"
+      >
+        {accordionItem}
+        <span className="ml-auto">
+          {open ? <AngleDownIcon /> : <AngleRightIcon />}
+        </span>
+      </div>
+      <div
+        ref={ref}
+        style={inlineStyle}
+        className="-mt-5 overflow-hidden text-gray-600 transition-height ease duration-300"
+      >
+        {accordionPanel}
+      </div>
+    </>
   );
 }
 

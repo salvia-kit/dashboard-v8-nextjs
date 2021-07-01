@@ -1,4 +1,4 @@
-import Content from '../../components/content';
+import Content from '../../src/components/content';
 
 export default function WeddingEventsPage() {
   return <Content title="Wedding Events" />;
