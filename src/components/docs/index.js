@@ -3,8 +3,8 @@ import { FileIcon, FolderIcon, JsIcon } from './icons';
 
 export default function Docs() {
   return (
-    <div className="py-8 max-w-full text-gray-700">
-      <h2 className="text-3xl font-medium mb-10">Documentation</h2>
+    <div className="py-8 max-w-full bg-white text-gray-700 shadow">
+      <h2 className="text-3xl font-medium pl-7 mb-10">Documentation</h2>
       <section className="mb-16 px-3 md:px-8 py-8 bg-white">
         <h2 className="text-2xl font-medium">Features</h2>
         <ul className="list-disc pl-6 mt-4">
@@ -25,7 +25,7 @@ export default function Docs() {
         </ul>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8 pt-8 bg-white">
         <h2 className="text-2xl font-medium">File Structure</h2>
         <div className="pl-2">
           <div className="flex mt-4 mb-3">
@@ -74,7 +74,7 @@ export default function Docs() {
           </div>
           <div className="pl-16 flex mb-3">
             <FileIcon />
-            <span className="pl-3">index.module.css</span>
+            <span className="pl-3">style.module.css</span>
           </div>
           <div className="pl-16 flex mb-3">
             <JsIcon />
@@ -95,7 +95,7 @@ export default function Docs() {
         </div>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8 ">
         <h2 className="text-2xl font-medium">File Structure explained</h2>
         <p className="mt-5">
           We will focus on<span className="px-1 font-medium">dashboard</span>
@@ -208,7 +208,7 @@ export default function Docs() {
           </div>
           <div className="flex flex-wrap md:flex-nowrap pl-6 mt-6">
             <FileIcon />
-            <span className="px-1 font-medium">index.module.css</span> :
+            <span className="px-1 font-medium">style.module.css</span> :
             <p className="pl-1">
               This style sheet is used to make the scrollbar invisible for the
               sidenav
@@ -240,7 +240,7 @@ export default function Docs() {
         </div>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8">
         <h2 className="text-2xl font-medium">How it works ?</h2>
         <ul className="pl-6 list-disc mt-4">
           <li className="mb-3">
@@ -262,7 +262,7 @@ export default function Docs() {
         </ul>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8">
         <h2 className="text-2xl font-medium">Auto Format and Linting</h2>
         <div className="mt-4">
           The dashboard is provided with
@@ -277,7 +277,7 @@ export default function Docs() {
         </div>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8">
         <h2 className="text-2xl font-medium">Export</h2>
         <p className="mt-4">
           As there is no vendor lock-in, if you already have a dashboard, you
@@ -306,7 +306,7 @@ export default function Docs() {
         </div>
       </section>
 
-      <section className="mb-16 px-3 md:px-8 py-8 bg-white">
+      <section className="mb-16 px-3 md:px-8">
         <h2 className="text-2xl font-medium">Customization</h2>
         <p className="mt-5">
           You can customize everything according to your preferences if it
@@ -317,7 +317,7 @@ export default function Docs() {
           The sidenav scrollbar is hidden by default but you can still scroll
           with the keyboards if you have several sidenav-items. If you are not a
           fan of this approach, you can always change its style in the
-          <span className="px-1 font-medium">index.module.css</span>file
+          <span className="px-1 font-medium">style.module.css</span>file
         </p>
         <p className="mt-5">
           In the<span className="px-1 font-medium">dashboard/layout.js</span>{' '}
@@ -338,7 +338,7 @@ export default function Docs() {
         </ul>
       </section>
 
-      <section className="px-3 md:px-8 py-8 bg-white">
+      <section className="px-3 md:px-8">
         <h2 className="text-2xl font-medium">Components</h2>
         <p className="mt-5">
           If you'll need some UI components for Tailwind CSS such as modal,
