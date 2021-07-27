@@ -6,12 +6,12 @@ const Context = React.createContext({});
 
 export default function DashboardProvider({ children }) {
   const [open, setOpen] = React.useState(false);
-  const ref = React.useRef();
+  const ref = React.useRef(null);
   const router = useRouter();
 
   const toggle = React.useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+    setOpen((prevState) => !prevState);
+  }, []);
 
   // set the html tag overflow to hidden
   // close side navigation on mobile when route starts changing
@@ -21,7 +21,6 @@ export default function DashboardProvider({ children }) {
     if (open && window.innerWidth < 1024) {
       router.events.on('routeChangeStart', () => setOpen(false));
     }
-
     return () => {
       if (open && window.innerWidth < 1024) {
         router.events.off('routeChangeStart', () => setOpen(false));
