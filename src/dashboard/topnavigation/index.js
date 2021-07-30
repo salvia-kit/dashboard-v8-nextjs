@@ -69,7 +69,7 @@ export default function TopNavigation() {
             <a href="#" className="block relative">
               <img
                 alt="Stone Cold Steve Austin"
-                src="https://mopays.com/wp-content/uploads/2021/04/Stone-Cold-Steve-Austin-in-WWE.jpg"
+                src="/images/1.jpg"
                 className="h-10  object-cover rounded-full w-10"
               />
             </a>
