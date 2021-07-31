@@ -39,7 +39,12 @@ export default function Accordion({ children }) {
       >
         {accordionItem}
         <span className="ml-auto">
-          {open ? <AngleDownIcon /> : <AngleRightIcon />}
+          <span hidden={open}>
+            <AngleDownIcon />
+          </span>
+          <span hidden={!open}>
+            <AngleRightIcon />
+          </span>
         </span>
       </div>
       <div
@@ -55,6 +60,7 @@ export default function Accordion({ children }) {
 
 const AngleRightIcon = () => (
   <svg
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     className="mt-1 h-4 w-4"
     viewBox="0 0 20 20"
@@ -70,6 +76,7 @@ const AngleRightIcon = () => (
 
 const AngleDownIcon = () => (
   <svg
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     className="mt-1 h-4 w-4"
     viewBox="0 0 20 20"
